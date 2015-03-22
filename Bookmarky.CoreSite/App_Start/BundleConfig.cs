@@ -16,6 +16,7 @@ namespace Bookmarky.CoreSite.App_Start
                 
                 
                 
+                
                 .Include("~/ThirdParty/bower_components/modernizr/modernizr.js")
                 .Include("~/ThirdParty/bower_components/jquery/dist/jquery.js")
                 .Include("~/ThirdParty/bower_components/angular/angular.js")
@@ -27,6 +28,7 @@ namespace Bookmarky.CoreSite.App_Start
 
             bundles.Add(new StyleBundle("~/bundle/bowercss")
                 //bower:css
+                
                 
                 
                 
