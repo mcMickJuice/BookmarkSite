@@ -10,8 +10,15 @@ namespace Bookmarky.CoreSite.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add((new ScriptBundle("~/bundle/app")
+            .Include("~/Scripts/app/*.js")    
+
+                ));
+
             bundles.Add(new ScriptBundle("~/bundle/bowerjs")
                 //bower:js
+                
+                
                 
                 
                 
@@ -23,11 +30,15 @@ namespace Bookmarky.CoreSite.App_Start
                 .Include("~/ThirdParty/bower_components/bootstrap/dist/js/bootstrap.js")
                 .Include("~/ThirdParty/bower_components/moment/moment.js")
                 .Include("~/ThirdParty/bower_components/toastr/toastr.js")
+                .Include("~/ThirdParty/bower_components/angular-route/angular-route.js")
+                .Include("~/ThirdParty/bower_components/angular-resource/angular-resource.js")
                 //endbower
                 );
 
             bundles.Add(new StyleBundle("~/bundle/bowercss")
                 //bower:css
+                
+                
                 
                 
                 

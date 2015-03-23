@@ -7,8 +7,8 @@
 *.sln.docstates
 
 # packages and third party files managed through npm and bower
-**/node_modules/*
-**/ThirdParty/bower_components/*
+/node_modules/*
+/ThirdParty/bower_components/*
 
 # Build results
 [Dd]ebug/
