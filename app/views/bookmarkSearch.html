@@ -1,0 +1,86 @@
+<div class="bookmark-listing">
+	<div>
+		<h4>Search for Bookmarks</h4>
+		<div>
+			<label >Title Text</label>
+			<input type="text" 
+			ng-model="searchCriteria.titleText"/>
+			<br>
+			<label >Minimum Rating</label>
+			<input type="number" 
+			ng-model="searchCriteria.minimumRating" />
+			<br>
+			<label >Tags</label>
+			<select ng-model="searchCriteria.tagIds" 
+			ng-options="item.id as item.tagName for item in availableTags" 
+			multiple="true">
+				
+			</select>
+			<br>
+			<label >Should All Tags Match or just some of them?</label>
+			<label >
+				<input type="radio" 
+				ng-model="searchCriteria.anyAllTagLogic" 
+				value="1"/>
+					Any Match
+				
+			</label>
+			<label>
+				<input type="radio" 
+				ng-model="searchCriteria.anyAllTagLogic" 
+				value="2"/>
+				And All Match
+			</label>
+			<br>
+			<label >
+				Resource Types	
+			</label>
+			<select ng-model="searchCriteria.resourceTypeIds" 
+			ng-options="item.id as item.resourceName for item in resources" 
+			multiple="true">
+				
+			</select>
+		</div>
+		<br>
+		<label >Any or All Fields Huh?</label>
+		<label >
+			<input type="radio" 
+			ng-model="searchCriteria.andOrFieldLogic" 
+			value="1">
+			AND
+		</label>
+		<label >
+			<input type="radio" 
+			ng-model="searchCriteria.andOrFieldLogic" 
+			value="2">
+			OR
+		</label>
+		<br>
+		<button class="btn btn-default" 
+		ng-click="search()">Search Berks</button>
+
+		<button class="btn btn-default" 
+		ng-click="clearSearch()">Clear Search Fields</button>
+	</div>
+	<pre>
+		{{searchCriteria | json}}
+	</pre>
+
+	<h3>Berkmarks!</h3>
+	<div>
+	<h4>Bookmark Results</h4>
+		<div class="row bookmark-item" 
+		ng-repeat="bookmark in bookmarks">
+			<div class="col-xs-2 title">
+				<a href="#/bookmarks/{{bookmark.id}}"> {{bookmark.title}}</a>
+			</div>
+			<div class="col-xs-8 gist">{{bookmark.gist}}</div>
+			<div class="col-xs-2 action">
+				<a href="{{bookmark.url}}" target="_blank">
+					Go to Link
+				</a>
+			</div>
+		</div>
+		
+	</div>
+</div>

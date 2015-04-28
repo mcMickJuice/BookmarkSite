@@ -1,0 +1,27 @@
+<div>
+	<div>
+		<h3>
+			{{bookmark.title}}
+		</h3>
+		<span>(edit)</span>
+	</div>
+	<h4>Tags</h4>
+	<div class="tag-listing">
+		<div class="tag" ng-repeat="tag in bookmark.tags">
+			{{tag.tagName}}
+		</div>
+	</div>
+	<h4>Gist</h4>
+	<div>
+		{{bookmark.gist}}
+	</div>
+	<h4>Review</h4>
+	<div>
+		{{bookmark.review}}
+	</div>
+	
+	<pre>
+		{{availableTags | json}}
+	</pre>
+
+</div>

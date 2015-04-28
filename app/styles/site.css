@@ -1,0 +1,8 @@
+.stickied-references {
+	background-color: lightblue;
+}
+
+.stickied-references > div {
+	border: 1px solid black;
+	cursor: pointer;
+}

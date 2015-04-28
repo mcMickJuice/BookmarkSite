@@ -1,0 +1,9 @@
+<div class="footer">
+            <h3>References</h3>
+            <div class="reference-link-container" ng-repeat="stickied in references" 
+            ng-click="openUrl(stickied.url)">
+              <div class="reference-link">
+              <h4>{{stickied.title}}</h4>
+              <img ng-src="{{stickied.imageUrl}}" alt="MDN">
+            </div>
+</div> 
