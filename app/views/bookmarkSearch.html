@@ -11,26 +11,16 @@
 			ng-model="searchCriteria.minimumRating" />
 			<br>
 			<label >Tags</label>
-			<select ng-model="searchCriteria.tagIds" 
-			ng-options="item.id as item.tagName for item in availableTags" 
-			multiple="true">
-				
-			</select>
+			<tag-search all-tags="availableTags"
+			selected-tags="selectedTags">
+
+			</tag-search>
 			<br>
 			<label >Should All Tags Match or just some of them?</label>
-			<label >
-				<input type="radio" 
-				ng-model="searchCriteria.anyAllTagLogic" 
-				value="1"/>
-					Any Match
-				
-			</label>
-			<label>
-				<input type="radio" 
-				ng-model="searchCriteria.anyAllTagLogic" 
-				value="2"/>
-				And All Match
-			</label>
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-primary" ng-model="searchCriteria.anyAllTagLogic" btn-radio="1" uncheckable>Any Match</label>
+				<label class="btn btn-primary" ng-model="searchCriteria.anyAllTagLogic" btn-radio="2" uncheckable>All Match</label>
+			</div>
 			<br>
 			<label >
 				Resource Types	
@@ -62,6 +52,9 @@
 		<button class="btn btn-default" 
 		ng-click="clearSearch()">Clear Search Fields</button>
 	</div>
+	<pre>
+		{{selectedTags | json}}
+	</pre>
 	<pre>
 		{{searchCriteria | json}}
 	</pre>

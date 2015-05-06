@@ -27,8 +27,44 @@ var app = angular.module('bookmarkysiteApp');
 				});
 		}
 
+		$scope.selectedTags = [];
+
+		$scope.$watchCollection('selectedTags',function(newValue,oldValue){
+			function mapId(item){
+				return item.id;
+			}
+
+			var newIds = newValue.map(mapId);
+			var oldIds = oldValue.map(mapId);
+
+			if(newValue.length > oldValue.length){ //added
+				newIds.filter(function(id){
+					return oldIds.indexOf(id) === -1;
+				})
+				.forEach(function(id){
+					$scope.searchCriteria.tagIds.push(id);
+				});
+			}
+			else{ //removed
+				oldIds.filter(function(id){
+					return newIds.indexOf(id) === -1;
+				})
+				.forEach(function(id){
+					var idx = $scope.searchCriteria.tagIds.indexOf(id);
+					if(idx !== -1)
+					{
+						$scope.searchCriteria.tagIds.splice(idx,1);
+					}
+				});
+			}
+		});
+
+		// function exceptOnLeft(leftCollection, rightCollection){
+
+		// }
 
 		$scope.clearSearch = function(){
+			$scope.selectedTags = [];
 			$scope.searchCriteria = clone(initSearchObject);
 		};
 

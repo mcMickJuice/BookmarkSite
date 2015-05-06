@@ -17,6 +17,7 @@
     <!-- endbuild -->
     <link rel="stylesheet" href="styles/site.css">
     <link rel="stylesheet" href="styles/bookmarkSearch.css">
+    <link rel="stylesheet" href="styles/bookmarkDetail.css">
   </head>
   <body ng-app="bookmarkysiteApp">
     <!--[if lt IE 7]>
@@ -80,12 +81,15 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/toastr/toastr.js"></script>
     <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/thirdPartyWrappers/toastrModule.js"></script>
         <script src="scripts/app.js"></script>
+        <script src="scripts/filters/availableTagFilter.js"></script>
+        <script src="scripts/directives/tagSearch.js"></script>
         <script src="scripts/services/bookmarkService.js"></script>
         <script src="scripts/services/tagService.js"></script>
         <script src="scripts/services/notification.js"></script>

@@ -4,11 +4,14 @@
 			{{bookmark.title}}
 		</h3>
 		<span>(edit)</span>
+		<br>
+		<button ng-click="undoChanges()">Undo</button>
+		<button ng-click="updateBookmark()">Confirm Update</button>
 	</div>
 	<h4>Tags</h4>
 	<div class="tag-listing">
 		<div class="tag" ng-repeat="tag in bookmark.tags">
-			{{tag.tagName}}
+			<span>{{tag.tagName}}</span><span ng-click="removeTag(tag)">X</span>
 		</div>
 	</div>
 	<h4>Gist</h4>
@@ -19,9 +22,22 @@
 	<div>
 		{{bookmark.review}}
 	</div>
-	
-	<pre>
-		{{availableTags | json}}
-	</pre>
+<!-- 	<div>
+		<h5>Add Tags</h5>
+		<input type="text" ng-model="tagSearch" />
+		<button ng-click="createTag(tagSearch)" ng-show="tagSearch">Create New Tag</button>
+		<div class="tag-search-results">
+			<div ng-repeat="tag in bookmark.tags | availableTags: allTags | filter: tagSearch"
+			ng-click="addTag(tag)">
+				{{tag.tagName}}
+			</div>
+		</div>
+	</div> -->
+	<tag-search all-tags="allTags" 
+	selected-tags="bookmark.tags" 
+	create-tag="createTag(tagName)"
+	can-add="true"
+	>
+	</tag-search>		
 
 </div>
