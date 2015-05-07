@@ -1,0 +1,21 @@
+<div>
+	<h3>Create New Bookmark</h3>
+	<label for="">Title Text</label>
+		<input type="text" ng-model="bookmark.title"/>
+	<label for="">Gist</label>	
+		<input type="text" ng-model="bookmark.gist">
+	<label for="">Add Review</label>
+	<!--Tag Section-->		
+		<label for="">Tags</label>
+				<tag-search all-tags="allTags" 
+	selected-tags="bookmark.tags" 
+	create-tag="createTag(tagName)"
+	can-add="true"
+	>
+	</tag-search>
+	<button>Create Bookmark</button>
+	
+	<pre>
+		{{bookmark | json}}
+	</pre>
+</div>

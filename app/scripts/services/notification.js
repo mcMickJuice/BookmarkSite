@@ -7,7 +7,7 @@ var app = angular.module('bookmarkysiteApp');
 		var defaultOptions = {
 			closeButton: true,
 			newestOnTop: true,
-			positionClass: 'toast-bottom-full-width',
+			positionClass: 'toast-top-right',
 			showDuration: 300,
 			hideDuration: 700
 		};

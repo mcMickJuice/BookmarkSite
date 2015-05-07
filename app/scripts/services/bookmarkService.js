@@ -1,12 +1,10 @@
 'use strict';
-
-var app = angular.module('bookmarkysiteApp');
-
-(function(){
+(function(angular){
 	function BookmarkService($http){
 		var host = 'http://localhost:23346/api/Bookmark/';
 
-		function buildUrlEndpoint(endpoint){
+		function buildUrlEndpoint(action){
+			var endpoint = action || '';
 			return host + endpoint;
 		}
 
@@ -64,6 +62,15 @@ var app = angular.module('bookmarkysiteApp');
 				return response.data;
 			});
 		}
+		
+		function createBookmark(bookmark){
+			var url = buildUrlEndpoint('Post');
+			
+			return $http.post(url,bookmark)
+			.then(function(response){
+				return response.data;
+			});
+		}
 
 
 		return {
@@ -72,11 +79,12 @@ var app = angular.module('bookmarkysiteApp');
 			performSearch: performSearch,
 			getBookmark: getBookmark,
 			getRecentBookmarks: getRecentBookmarks,
-			updateBookmark: updateBookmark
+			updateBookmark: updateBookmark,
+			createBookmark: createBookmark
 			};
 }
 
 
-app.factory('bookmarkService',['$http',BookmarkService]);
+angular.module('bookmarkysiteApp').factory('bookmarkService',['$http',BookmarkService]);
 
-}());
+}(window.angular));

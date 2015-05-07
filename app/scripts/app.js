@@ -23,7 +23,11 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'mainCtrl'
+      })
+      .when('/bookmarks/create',{
+        templateUrl: 'views/bookmarkDetail.html',
+        controller: 'bookmarkCtrl'
       })
       .when('/bookmarks',{
         templateUrl: 'views/bookmarkSearch.html',

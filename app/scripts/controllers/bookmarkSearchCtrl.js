@@ -1,8 +1,8 @@
 'use strict';
 
-var app = angular.module('bookmarkysiteApp');
-
-(function(){
+(function(angular){
+	'use strict';
+	
 	function BookmarkSearchCtrl($scope, bookmarkService, notification){
 		var initSearchObject;
 
@@ -59,10 +59,6 @@ var app = angular.module('bookmarkysiteApp');
 			}
 		});
 
-		// function exceptOnLeft(leftCollection, rightCollection){
-
-		// }
-
 		$scope.clearSearch = function(){
 			$scope.selectedTags = [];
 			$scope.searchCriteria = clone(initSearchObject);
@@ -88,14 +84,12 @@ var app = angular.module('bookmarkysiteApp');
 				notification.error('There was an error when performing search');
 			});
 		};
-
-		
-
-
 		init();
 
 }
+	
+	angular
+	.module('bookmarkysiteApp')
+	.controller('bookmarkSearchCtrl',['$scope','bookmarkService','notification',BookmarkSearchCtrl]);
 
-app.controller('bookmarkSearchCtrl',['$scope','bookmarkService','notification',BookmarkSearchCtrl]);
-
-}());
+}(window.angular));

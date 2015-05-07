@@ -1,6 +1,9 @@
 <div class="bookmark-listing">
 	<div>
-		<h4>Search for Bookmarks</h4>
+		<h4>Search for Bookmarks</h4> 
+		<span>
+			<a href="#/bookmarks/create">+ Create New Bookmark</a>
+		</span>
 		<div>
 			<label >Title Text</label>
 			<input type="text" 
@@ -10,7 +13,12 @@
 			<input type="number" 
 			ng-model="searchCriteria.minimumRating" />
 			<br>
-			<label >Tags</label>
+			<label>Tags</label>
+			<div>
+				<div ng-repeat="tag in selectedTags">
+					{{tag.tagName}}
+				</div>
+			</div>
 			<tag-search all-tags="availableTags"
 			selected-tags="selectedTags">
 
@@ -52,12 +60,12 @@
 		<button class="btn btn-default" 
 		ng-click="clearSearch()">Clear Search Fields</button>
 	</div>
-	<pre>
+<!--	<pre>
 		{{selectedTags | json}}
 	</pre>
 	<pre>
 		{{searchCriteria | json}}
-	</pre>
+	</pre>-->
 
 	<h3>Berkmarks!</h3>
 	<div>

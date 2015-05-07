@@ -1,4 +1,4 @@
-(function(){
+(function(angular){
 	'use strict';
 
 	function TagService($http){
@@ -34,4 +34,4 @@
 	}
 
 	angular.module('bookmarkysiteApp').factory('tagService',['$http',TagService]);
-}());
+}(window.angular));

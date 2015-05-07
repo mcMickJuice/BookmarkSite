@@ -1,43 +1,86 @@
 <div>
-	<div>
-		<h3>
-			{{bookmark.title}}
-		</h3>
-		<span>(edit)</span>
-		<br>
-		<button ng-click="undoChanges()">Undo</button>
-		<button ng-click="updateBookmark()">Confirm Update</button>
-	</div>
-	<h4>Tags</h4>
-	<div class="tag-listing">
-		<div class="tag" ng-repeat="tag in bookmark.tags">
-			<span>{{tag.tagName}}</span><span ng-click="removeTag(tag)">X</span>
+		<div>
+			{{bookmark | json}}
 		</div>
-	</div>
-	<h4>Gist</h4>
 	<div>
-		{{bookmark.gist}}
+		<button ng-click="setState('read')">READ</button>
+		<button ng-click="setState('update')">UPDATE</button>
+		<button ng-click="setState('create')">CREATE</button>
 	</div>
-	<h4>Review</h4>
-	<div>
-		{{bookmark.review}}
-	</div>
-<!-- 	<div>
-		<h5>Add Tags</h5>
-		<input type="text" ng-model="tagSearch" />
-		<button ng-click="createTag(tagSearch)" ng-show="tagSearch">Create New Tag</button>
-		<div class="tag-search-results">
-			<div ng-repeat="tag in bookmark.tags | availableTags: allTags | filter: tagSearch"
-			ng-click="addTag(tag)">
-				{{tag.tagName}}
+	
+	<!--Display-->
+	<div ng-show="viewState == 'read'">
+		<h2>READ</h2>
+		<h3>{{bookmark.title}}</h3>
+		<span ng-click="setState('update')">Edit</span>
+		<h4>Tags</h4>
+		<div class="tag-listing">
+			<div class="tag" ng-repeat="tag in bookmark.tags">
+				<span>{{tag.tagName}}</span>
 			</div>
 		</div>
-	</div> -->
-	<tag-search all-tags="allTags" 
-	selected-tags="bookmark.tags" 
-	create-tag="createTag(tagName)"
-	can-add="true"
-	>
-	</tag-search>		
-
+		<h4>Gist</h4>
+		<p>{{bookmark.gist}}</p>
+		<h4>Review</h4>
+		<span ng-click="openReviewDialog(bookmark.id)">Create/Edit Review</span>
+		<review-form 
+		bookmark-id="bookmark.id"
+		review="bookmark.review"
+		update-review="updateReview(review)"
+		create-review="createReview(review)">
+		</review-form>
+	</div>		
+	<!--Edit-->
+	<div ng-show="viewState == 'update'">
+		<h2>UPDATE</h2>
+		<div>
+		<button ng-click="undoChanges()">Undo</button>
+		<button ng-click="updateBookmark()">Confirm Update</button>
+		</div>
+		<label for="">Bookmark Title:</label>
+		<input type="text" ng-model="bookmark.title">
+			<br>
+		<label for="">Tags:</label>
+		<div class="tag-listing">
+			<div class="tag" ng-repeat="tag in bookmark.tags">
+				<span>{{tag.tagName}}</span> <span ng-click="removeTag(tag)">X</span>
+			</div>
+		</div>
+		<tag-search all-tags="allTags" 
+		selected-tags="bookmark.tags" 
+		create-tag="createTag(tagName)"
+		can-add="true">
+		</tag-search>
+		<label for="">Gist:</label>
+		<input type="text" ng-model="bookmark.gist" />
+		<br>
+		<label for="">Review</label>
+			<p>This is just a stub for reviews</p>
+	</div>
+	<!--Create-->
+	<div ng-show="viewState == 'create'">
+		<h2>CREATE</h2>
+		<div>
+		<button ng-click="createBookmark()">Create Bookmark</button>
+		</div>
+		<label for="">Bookmark Title:</label>
+		<input type="text" ng-model="bookmark.title">
+			<br>
+		<label for="">Tags:</label>
+		<div class="tag-listing">
+			<div class="tag" ng-repeat="tag in bookmark.tags">
+				<span>{{tag.tagName}}</span> <span ng-click="removeTag(tag)">X</span>
+			</div>
+		</div>
+		<tag-search all-tags="allTags" 
+		selected-tags="bookmark.tags" 
+		create-tag="createTag(tagName)"
+		can-add="true">
+		</tag-search>
+		<label for="">Gist:</label>
+		<input type="text" ng-model="bookmark.gist" />
+		<br>
+		<label for="">Review</label>
+		<p>This is just a stub for reviews</p>
+	</div>
 </div>
