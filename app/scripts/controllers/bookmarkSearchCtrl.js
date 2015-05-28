@@ -22,12 +22,15 @@
 					$scope.searchCriteria = data.searchCriteria;
 					$scope.availableTags = data.fieldInitialization.availableTags;
 					$scope.resources = data.fieldInitialization.resources;
-
-					notification.info('Form is loaded!');
 				});
 		}
 
 		$scope.selectedTags = [];
+
+		$scope.removeTag = function(tag){
+			var idx = $scope.selectedTags.indexOf(tag);
+			$scope.selectedTags.splice(idx,1);
+		}
 
 		$scope.$watchCollection('selectedTags',function(newValue,oldValue){
 			function mapId(item){

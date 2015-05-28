@@ -26,7 +26,7 @@ angular
         controller: 'mainCtrl'
       })
       .when('/bookmarks/create',{
-        templateUrl: 'views/bookmarkDetail.html',
+        templateUrl: 'views/bookmarkCreate.html',
         controller: 'bookmarkCtrl'
       })
       .when('/bookmarks',{

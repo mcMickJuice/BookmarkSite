@@ -1,0 +1,23 @@
+<div>
+	<a target="_blank" href="{{bookmark.url}}" class="h3">{{bookmark.title}}</a>
+	<h4>Tags</h4>
+	<div class="tag-listing">
+		<div class="tag" ng-repeat="tag in bookmark.tags">
+			<span>{{tag.tagName}}</span>
+		</div>
+	</div>
+	<h4>Gist</h4>
+	<p>{{bookmark.gist}}</p>
+	<h4>Resource Type</h4>
+	<p>
+		{{bookmark.resourceType}}
+	</p>
+	<h4>Review</h4>
+	<span ng-click="openReviewDialog(bookmark.id)">Create/Edit Review</span>
+	<!-- <review-form
+	bookmark-id="bookmark.id"
+	review="bookmark.review"
+	update-review="updateReview(review)"
+	create-review="createReview(review)">
+	</review-form> -->
+</div>
