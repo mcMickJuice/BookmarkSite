@@ -24,7 +24,9 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-3"><h4>Resource Type</h4></div>
-			<div class="col-sm-9">{{bookmark.resourceType}}</div>
+			<div class="col-sm-9">
+				<bm-resource-type resource-id="{{bookmark.resourceType}}"></bm-resource-type>
+			</div>
 		</div>
 		<div class="row" ng-show="bookmark.review.id">
 			<div class="col-sm-3">
