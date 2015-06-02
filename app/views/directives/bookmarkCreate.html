@@ -5,7 +5,7 @@
 	</div>
 	<div ng-show="!isEditMode">
 		<button class="btn btn-sm btn-success" ng-click="createBookmark()">Create Bookmark</button>
-		<a href="#/bookmarks">
+		<a ui-sref="bookmarks.search">
 			<button class="btn btn-sm btn-danger">Cancel</button>
 			
 		</a>
@@ -46,6 +46,4 @@
 			<span>{{tag.tagName}}</span> <span ng-click="removeTag(tag)">X</span>
 		</div>
 	</div>
-	<!-- 	<label for="">Review</label>
-	<p>This is just a stub for reviews</p> -->
 </div>

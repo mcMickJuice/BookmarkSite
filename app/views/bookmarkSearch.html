@@ -3,7 +3,7 @@
 		<div class="panel-heading">
 			<span class="h2 panel-title">Search for Bookmarks</span>
 			
-			<a href="#/bookmarks/create" class="pull-right">
+			<a ui-sref="bookmarks.create" class="pull-right">
 				<button class="btn btn-primary btn-sm" type="button">
 				Create New<span class="glyphicon glyphicon-plus"></span>
 				</button>
@@ -98,7 +98,7 @@
 			<table class="table">
 				<tbody>
 					<tr ng-repeat="bookmark in bookmarks">
-						<td><a href="#/bookmarks/{{bookmark.id}}"> {{bookmark.title}}</a></td>
+						<td><a ui-sref="bookmarks.detail({bookmarkId: bookmark.id})"> {{bookmark.title}}</a></td>
 						<td>{{bookmark.gist}}</td>
 						<td><a href="{{bookmark.url}}" target="_blank">
 							Link

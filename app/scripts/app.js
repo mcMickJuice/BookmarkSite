@@ -13,28 +13,69 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
+    // 'ngRoute',
     'ngSanitize',
     'ngTouch',
     'toastrjs',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  // .config(function ($routeProvider) {
+  //   $routeProvider
+  //     .when('/', {
+  //       templateUrl: 'views/main.html',
+  //       controller: 'mainCtrl'
+  //     })
+  //     .when('/bookmarks/create',{
+  //       templateUrl: 'views/bookmarkCreate.html',
+  //       controller: 'bookmarkCtrl'
+  //     })
+  //     .when('/bookmarks',{
+  //       templateUrl: 'views/bookmarkSearch.html',
+  //       controller: 'bookmarkSearchCtrl'
+  //     })
+  //     .when('/bookmarks/:id',{
+  //       templateUrl: 'views/bookmarkDetail.html',
+  //       controller: 'bookmarkCtrl'
+  //     });
+  // });
+  .config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider.state('home', {
+        url: '/',
         templateUrl: 'views/main.html',
-        controller: 'mainCtrl'
+        controller: 'mainCtrl',
+        controllerAs: 'vm'
       })
-      .when('/bookmarks/create',{
+      .state('bookmarks', {
+        url: '/bookmarks',
+        abstract: true,
+        templateUrl: 'views/bookmarkShell.html',
+      })
+      .state('bookmarks.search',{
+        url:'/search',
+        templateUrl: ' views/bookmarkSearch.html',
+        controller: 'bookmarkSearchCtrl',
+        controllerAs: 'vm'
+      })
+      .state('bookmarks.create', {
+        url: '/create',
         templateUrl: 'views/bookmarkCreate.html',
-        controller: 'bookmarkCtrl'
+        controller: 'bookmarkCtrl',
+       controllerAs: 'vm'
       })
-      .when('/bookmarks',{
-        templateUrl: 'views/bookmarkSearch.html',
-        controller: 'bookmarkSearchCtrl'
-      })
-      .when('/bookmarks/:id',{
+      .state('bookmarks.detail', { //view Bookmark
+        url: '/:bookmarkId',
         templateUrl: 'views/bookmarkDetail.html',
-        controller: 'bookmarkCtrl'
+        controller: 'bookmarkCtrl',
+       controllerAs: 'vm'
       });
+
+    // .state('bookmark.edit', {
+    //   url: '/:bookmarkId/edit',
+    //   templateUrl: 'views/bookmarkDetail.html',
+    //   controller: 'bookmarkCtrl',
+    //   controllerAs: 'vm'
+    // });
   });

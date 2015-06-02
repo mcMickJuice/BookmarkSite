@@ -1,7 +1,9 @@
 (function(angular) {
 	'use strict';
 
-	function BookmarkCtrl($scope, $modal, $routeParams, $location, bookmarkService, tagService, reviewService, notification) {
+	function BookmarkCtrl($scope, $modal, $stateParams, $location, bookmarkService, tagService, reviewService, notification) {
+		var vm = this;
+
 		var originalCopy;
 		$scope.bookmark = {
 			tags: []
@@ -10,7 +12,7 @@
 
 		$scope.edit = function() {
 			$scope.isEditMode = true;
-		}
+		};
 
 		function clone(obj) {
 			return JSON.parse(JSON.stringify(obj));
@@ -24,7 +26,7 @@
 		}
 
 		function init() {
-			var id = $routeParams.id;
+			var id = $stateParams.bookmarkId;
 			var isNew = !id;
 			//new Bookmark
 			if (isNew) {
@@ -32,7 +34,7 @@
 					.then(function(data) {
 						$scope.allTags = data.fieldInitialization.availableTags;
 						$scope.resources = data.fieldInitialization.resources;
-					})
+					});
 			}
 			//update 
 			else {
@@ -128,7 +130,7 @@
 					data: function() {
 						return {
 							bookmarkId: id
-						}
+						};
 					}
 				}
 			});
@@ -143,7 +145,7 @@
 						notification.success('review saved!');
 					}, onError('Error Creating Review'));
 			});
-		}
+		};
 
 
 		$scope.undoChanges = function() {
@@ -156,5 +158,5 @@
 
 	angular
 		.module('bookmarkysiteApp')
-		.controller('bookmarkCtrl', ['$scope', '$modal', '$routeParams', '$location', 'bookmarkService', 'tagService', 'reviewService', 'notification', BookmarkCtrl]);
+		.controller('bookmarkCtrl', ['$scope', '$modal', '$stateParams', '$location', 'bookmarkService', 'tagService', 'reviewService', 'notification', BookmarkCtrl]);
 }(window.angular));

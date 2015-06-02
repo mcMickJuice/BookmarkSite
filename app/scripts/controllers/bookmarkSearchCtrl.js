@@ -1,5 +1,3 @@
-'use strict';
-
 (function(angular){
 	'use strict';
 	
@@ -30,7 +28,7 @@
 		$scope.removeTag = function(tag){
 			var idx = $scope.selectedTags.indexOf(tag);
 			$scope.selectedTags.splice(idx,1);
-		}
+		};
 
 		$scope.$watchCollection('selectedTags',function(newValue,oldValue){
 			function mapId(item){

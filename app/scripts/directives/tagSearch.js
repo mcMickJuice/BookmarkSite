@@ -10,7 +10,7 @@
 				createTag: '&createTag',
 				canAdd: '=canAdd'
 			},
-			link: function(scope,element,attrs){
+			link: function(scope){
 				scope.addTag = function(tag){
 					scope.selectedTags.push(tag);
 				};
