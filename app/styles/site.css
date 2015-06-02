@@ -1,8 +1,46 @@
-.stickied-references {
-	background-color: lightblue;
+body{
+	margin-bottom: 240px;
 }
 
-.stickied-references > div {
-	border: 1px solid black;
+.footer {
+	background-color: lightblue;
+	border-top: 1px solid gray;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+.stickied-container {
+	height: 220px;
+	margin: 5px 30px;
+
+}
+
+	.stickied-container div.item {
+		border: 1px solid black;
+		cursor: pointer;
+		display: inline-block;
+		height: 200px;
+		width: 200px;
+		position: relative;
+		background-color: white;
+		margin-right: 10px;
+	}
+
+	.stickied-container .edit{
+		position: absolute;
+		right:5px;
+		top: 5px;
+	}
+
+	.stickied-container a {
+		color: inherit;
+	}
+
+.collapse-toggle {
+	position: absolute;
+	top:0;
+	right:10px;
 	cursor: pointer;
 }
+

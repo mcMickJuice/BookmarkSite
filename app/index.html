@@ -52,9 +52,27 @@
       </div>
       <div class="col-sm-10 col-md-9" ui-view></div>
     </div>
-  <!--   <div class="footer">
+    <div class="footer clearfix" ng-controller="footerCtrl" ng-init="collapsed = false" >
+      <div class="collapse-toggle" ng-click="collapsed = !collapsed">Click to {{collapsed ? 'Expand' : 'Collapse'}}</div>
+      <div class="collapsible-container" collapse="collapsed">
+        <div class="stickied-container" >
+          <div class="item col-md-3"  ng-repeat="bookmark in stickiedBookmarks">
+            <div class="edit" ui-sref="bookmarks.detail({bookmarkId: bookmark.id})">
+              (Edit)
+            </div>
+            <a href="{{bookmark.url}}" target="_blank">
+              <div>
+                <h2>{{bookmark.title}}</h2>
+                <img ng-src="{{bookmark.imageUrl || ''}}" alt="Image not found">
+              </div>
+            </a>
+            
+          </div>
+        </div>
+      </div>
       
-    </div> -->
+      
+    </div>
   </div>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <script>
@@ -96,6 +114,7 @@
   <script src="scripts/services/tagService.js"></script>
   <script src="scripts/services/notification.js"></script>
   <script src="scripts/controllers/mainCtrl.js"></script>
+  <script src="scripts/controllers/footerCtrl.js"></script>
   <script src="scripts/controllers/bookmarkSearchCtrl.js"></script>
   <script src="scripts/controllers/bookmarkCtrl.js"></script>
   <script src="scripts/controllers/reviewCtrl.js"></script>

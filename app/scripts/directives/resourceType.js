@@ -14,6 +14,7 @@
 					scope.imageSrc = '/images/' + scope.resourceInfo.imageUrl;
 				}
 			});
+			
 
 			scope.$watch('resourceInfo');
 		}

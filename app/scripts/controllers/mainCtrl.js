@@ -12,7 +12,6 @@ angular.module('bookmarkysiteApp')
 
 		    bookmarkService.getHomePageBookmarks()
 		    .then(function(data){
-				$scope.stickiedBookmarks = data.stickiedBookmarks;
 				$scope.recentlyAddedBookmarks = data.recentBookmarks;
 		    });
 

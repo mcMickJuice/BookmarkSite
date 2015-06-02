@@ -38,7 +38,7 @@ angular
     4:{
       name: 'Reference',
       imageUrl: 'reference.jpg',
-      description: "Bookmark is a site that's used as a reference (e.g. MDN)"
+      description: 'Bookmark is a site that\'s used as a reference (e.g. MDN)'
     },
   })
   .config(function($stateProvider, $urlRouterProvider) {
