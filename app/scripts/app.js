@@ -73,11 +73,4 @@ angular
         controller: 'bookmarkCtrl',
        controllerAs: 'vm'
       });
-
-    // .state('bookmark.edit', {
-    //   url: '/:bookmarkId/edit',
-    //   templateUrl: 'views/bookmarkDetail.html',
-    //   controller: 'bookmarkCtrl',
-    //   controllerAs: 'vm'
-    // });
   });
