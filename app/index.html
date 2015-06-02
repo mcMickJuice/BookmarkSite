@@ -53,7 +53,8 @@
       <div class="col-sm-10 col-md-9" ui-view></div>
     </div>
     <div class="footer clearfix" ng-controller="footerCtrl" ng-init="collapsed = false" >
-      <div class="collapse-toggle" ng-click="collapsed = !collapsed">Click to {{collapsed ? 'Expand' : 'Collapse'}}</div>
+      <div class="collapse-toggle"
+      ng-click="collapsed = !collapsed">Click to {{collapsed ? 'Expand' : 'Collapse'}}</div>
       <div class="collapsible-container" collapse="collapsed">
         <div class="stickied-container" >
           <div class="item col-md-3"  ng-repeat="bookmark in stickiedBookmarks">
@@ -61,9 +62,14 @@
               (Edit)
             </div>
             <a href="{{bookmark.url}}" target="_blank">
-              <div>
-                <h2>{{bookmark.title}}</h2>
-                <img ng-src="{{bookmark.imageUrl || ''}}" alt="Image not found">
+              <div bm-bg-image image-url="{bookmark.linkIconUrl}">
+                <div class="title">
+                  <h2>{{bookmark.title}}</h2>
+                  
+                </div>
+<!--                 <div class="image">
+                  <img ng-src="{{bookmark.linkIconUrl || ''}}" alt="Image not found">
+                </div> -->
               </div>
             </a>
             
@@ -108,6 +114,7 @@
   <script src="scripts/directives/bookmarkView.js"></script>
   <script src="scripts/directives/bookmarkCreate.js"></script>
   <script src="scripts/directives/resourceType.js"></script>
+  <script src="scripts/directives/bgImage.js"></script>
   <script src="scripts/services/bookmarkService.js"></script>
   <script src="scripts/services/reviewService.js"></script>
   <script src="scripts/services/tagService.js"></script>

@@ -10,7 +10,7 @@
 			bookmarkService.getHomePageBookmarks()
 				.then(function(data) {
 					$scope.stickiedBookmarks = data.stickiedBookmarks;
-					$timeout(getStickiedBookmarks, interval);
+					//$timeout(getStickiedBookmarks, interval);
 
 				}, function(error) {
 					console.error(error);
