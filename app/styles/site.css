@@ -25,6 +25,8 @@ body{
 		position: relative;
 		background-color: white;
 		margin-right: 10px;
+		background-repeat: none;
+		background-size: 180px;
 	}
 
 	.stickied-container .edit{
