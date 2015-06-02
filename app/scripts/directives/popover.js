@@ -4,8 +4,12 @@
 	function Popover() {
 		return {
 			restrict: 'A',
+			//templateUrl: '/views/directives/popover.html',
 			link: function(scope, element, attrs) {
-				element.popover();
+				element.popover({
+					trigger:'click',
+					html: 'true'
+				});
 
 				scope.$on("$destroy",
 					function() {

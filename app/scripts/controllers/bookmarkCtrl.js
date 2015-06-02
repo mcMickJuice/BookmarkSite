@@ -1,7 +1,7 @@
 (function(angular) {
 	'use strict';
 
-	function BookmarkCtrl($scope, $routeParams, $location, bookmarkService, tagService, reviewService, notification) {
+	function BookmarkCtrl($scope, $modal, $routeParams, $location, bookmarkService, tagService, reviewService, notification) {
 		var originalCopy;
 		$scope.bookmark = {
 			tags: []
@@ -28,11 +28,6 @@
 			var isNew = !id;
 			//new Bookmark
 			if (isNew) {
-				// tagService.getAllTags()
-				// .then(function(tags){
-				// 	$scope.allTags = tags;
-				//     notification.info('Tags Loaded!');
-				// });
 				bookmarkService.getSearchInitialization()
 					.then(function(data) {
 						$scope.allTags = data.fieldInitialization.availableTags;
@@ -41,12 +36,6 @@
 			}
 			//update 
 			else {
-				// tagService.getAllTags()
-				// .then(function(tags){
-				// 	$scope.allTags = tags;
-				// 	notification.info('Tags Loaded!');
-				// 	return bookmarkService.getBookmark(id);
-				// })
 				bookmarkService.getSearchInitialization()
 					.then(function(data) {
 						$scope.allTags = data.fieldInitialization.availableTags;
@@ -120,15 +109,41 @@
 				}, onError('Error Updating Review'));
 		};
 
-		$scope.createReview = function(review) {
-			reviewService.createReview(review)
-				.then(function(review) {
-					console.log(review);
-					$scope.bookmark.review = review;
-					notification.success('Review Created');
-				}, onError('Error Creating Review'));
-		};
+		// $scope.createReview = function(review) {
+		// 	reviewService.createReview(review)
+		// 		.then(function(review) {
+		// 			console.log(review);
+		// 			$scope.bookmark.review = review;
+		// 			notification.success('Review Created');
+		// 		}, onError('Error Creating Review'));
+		// };
 		//review directive?
+
+		$scope.createReview = function(id){
+			var modalInstance = $modal.open({
+				templateUrl: '/views/review.html',
+				controller: 'reviewCtrl',
+				controllerAs: 'vm',
+				resolve: {
+					data: function() {
+						return {
+							bookmarkId: id
+						}
+					}
+				}
+			});
+
+			modalInstance.result.then(function(result) {
+				console.log('review object', result);
+
+				reviewService.createReview(result)
+					.then(function(review) {
+						console.log('created review', review);
+						$scope.bookmark.review = review;
+						notification.success('review saved!');
+					}, onError('Error Creating Review'));
+			});
+		}
 
 
 		$scope.undoChanges = function() {
@@ -141,5 +156,5 @@
 
 	angular
 		.module('bookmarkysiteApp')
-		.controller('bookmarkCtrl', ['$scope', '$routeParams', '$location', 'bookmarkService', 'tagService', 'reviewService', 'notification', BookmarkCtrl]);
+		.controller('bookmarkCtrl', ['$scope', '$modal', '$routeParams', '$location', 'bookmarkService', 'tagService', 'reviewService', 'notification', BookmarkCtrl]);
 }(window.angular));

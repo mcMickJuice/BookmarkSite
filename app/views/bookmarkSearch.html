@@ -36,7 +36,7 @@
 						<div class="col-xs-6">
 							<label >Tag Matching Criteria:</label>
 							<span popover class="glyphicon glyphicon-question-sign"
-							data-toggle="popover" data-content="Any - bookmarks with any matching tag. All - bookmakes with ALL matching tags"
+							data-toggle="popover" data-content="<strong>Any</strong> - bookmarks with any matching tag.<br/> <strong>All</strong> - bookmakes with ALL matching tags"
 							data-container="body">
 								
 							</span>
@@ -45,10 +45,9 @@
 								<option value="2">ALL</option>
 							</select>
 						</div>
-						
 					</div>
 					<label for="">Added Tags ({{selectedTags.length || 0}} selected)</label>
-					<div class="well added-tag-list">
+					<div class="well added-tag-list clearfix">
 						<div class="tag added col-xs-4 col-md-3 tag"
 							ng-click="removeTag(tag)"
 							ng-repeat="tag in selectedTags | limitTo: 4">
@@ -71,7 +70,7 @@
 						<div class="col-xs-6">
 							<label >Any or All Fields Huh?</label>
 							<span popover class="glyphicon glyphicon-question-sign"
-							data-toggle="popover" data-content="AND - Compare criteria using 'and' logic comparison. OR - Compare criteria using 'or' logic comparison"
+							data-toggle="popover" data-content="<strong>AND</strong> - Compare criteria using 'and' logic comparison<br/> <strong>OR</strong> - Compare criteria using 'or' logic comparison"
 							data-container="body">
 								
 							</span>

@@ -1,23 +1,43 @@
 <div>
 	<a target="_blank" href="{{bookmark.url}}" class="h3">{{bookmark.title}}</a>
-	<h4>Tags</h4>
-	<div class="tag-listing">
-		<div class="tag" ng-repeat="tag in bookmark.tags">
-			<span>{{tag.tagName}}</span>
+	
+	<div class="row-container">
+		<div class="row">
+			<div class="col-sm-3" ng-init="isCollapsed = false" ng-click="isCollapsed = !isCollapsed">
+				<span class="h4">Tags - ({{isCollapsed ? 'show' : 'hide'}})</span>
+			</div>
+			<div class="col-sm-9">
+				<div class="tag-listing" collapse="isCollapsed">
+					<div class="tag" ng-repeat="tag in bookmark.tags">
+						<span>{{tag.tagName}}</span>
+					</div>
+				</div>
+			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<h4>Bookmark Description</h4>
+			</div>
+			<div class="col-sm-9">
+				<p>{{bookmark.gist}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3"><h4>Resource Type</h4></div>
+			<div class="col-sm-9">{{bookmark.resourceType}}</div>
+		</div>
+		<div class="row" ng-show="bookmark.review.id">
+			<div class="col-sm-3">
+				<h4>Review</h4>
+			</div>
+			<div class="col-sm-9">
+				<span class="score">{{bookmark.review.score}}</span>
+				<p>{{bookmark.review.overview}}</p>
+			</div>
+		</div>
+		<div ng-hide="bookmark.review.id" ng-click="createReview(bookmark.id)">
+			Click Here to create a Review
+		</div>
+		
+		<!-- <span ng-click="openReviewDialog(bookmark.id)">Create/Edit Review</span> -->
 	</div>
-	<h4>Gist</h4>
-	<p>{{bookmark.gist}}</p>
-	<h4>Resource Type</h4>
-	<p>
-		{{bookmark.resourceType}}
-	</p>
-	<h4>Review</h4>
-	<span ng-click="openReviewDialog(bookmark.id)">Create/Edit Review</span>
-	<!-- <review-form
-	bookmark-id="bookmark.id"
-	review="bookmark.review"
-	update-review="updateReview(review)"
-	create-review="createReview(review)">
-	</review-form> -->
-</div>
