@@ -57,20 +57,13 @@
       ng-click="collapsed = !collapsed">Click to {{collapsed ? 'Expand' : 'Collapse'}}</div>
       <div class="collapsible-container" collapse="collapsed">
         <div class="stickied-container" >
-          <div class="item col-md-3"  ng-repeat="bookmark in stickiedBookmarks">
+          <div class="item col-md-3"  ng-repeat="bookmark in stickiedBookmarks" 
+          bm-bg-image url="{{bookmark.linkIconUrl}}">
             <div class="edit" ui-sref="bookmarks.detail({bookmarkId: bookmark.id})">
               (Edit)
             </div>
             <a href="{{bookmark.url}}" target="_blank">
-              <div bm-bg-image image-url="{bookmark.linkIconUrl}">
-                <div class="title">
                   <h2>{{bookmark.title}}</h2>
-                  
-                </div>
-<!--                 <div class="image">
-                  <img ng-src="{{bookmark.linkIconUrl || ''}}" alt="Image not found">
-                </div> -->
-              </div>
             </a>
             
           </div>

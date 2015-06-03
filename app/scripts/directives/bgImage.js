@@ -3,8 +3,8 @@
 	function BgImage() {
 
 		var link = function(scope, element, attr) {
-			attr.$observe('image-url', function(value) {
-				var url = 'url(' + scope.url + ')';
+			attr.$observe('url', function(value) {
+				var url = 'url(' + value + ')';
 				element.css('background-image', url);
 			});
 			console.log('scope in bgImage Directive', attr);

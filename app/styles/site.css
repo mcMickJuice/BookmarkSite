@@ -18,25 +18,39 @@ body{
 
 	.stickied-container div.item {
 		border: 1px solid black;
-		cursor: pointer;
+		/*cursor: pointer;*/
 		display: inline-block;
 		height: 200px;
 		width: 200px;
 		position: relative;
 		background-color: white;
 		margin-right: 10px;
-		background-repeat: none;
-		background-size: 180px;
+		background-repeat: no-repeat;
+		background-size: 200px;
+	}
+
+	.stickied-container div.item:after{
+		height: 140px;
+		width: 198px;
+		content: "";
+		position: absolute;
+		bottom:0;
+		left:0;
+		background: linear-gradient(to top, rgba(150,150,150,1), rgba(0,0,0,0));
 	}
 
 	.stickied-container .edit{
 		position: absolute;
 		right:5px;
 		top: 5px;
+		cursor: pointer;
 	}
 
 	.stickied-container a {
-		color: inherit;
+		color: white;
+		position: absolute;
+		bottom:2px;
+		z-index: 1000;
 	}
 
 .collapse-toggle {
@@ -45,4 +59,3 @@ body{
 	right:10px;
 	cursor: pointer;
 }
-
