@@ -1,6 +1,3 @@
-(function(angular){
-	'use strict';
-
 	function BookmarkSearchCtrl($scope, bookmarkService, notification){
 		var initSearchObject;
 
@@ -89,8 +86,4 @@
 
 }
 
-	angular
-	.module('bookmarkysiteApp')
-	.controller('bookmarkSearchCtrl',['$scope','bookmarkService','notification',BookmarkSearchCtrl]);
-
-}(window.angular));
+export {BookmarkSearchCtrl}

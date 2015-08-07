@@ -8,16 +8,25 @@
  *
  * Main module of the application.
  */
+
+import {FooterDirective as footer} from '../components/footer/footer'
+import {BookmarkSearchDirective as bookmarkSearch} from '../components/bookmark-search/bookmark-search'
+import notificationModule from '../services/notification/notification.module'
+import uiRouter from 'angular-ui-router'
+
 angular
   .module('bookmarkysiteApp', [
     'ngAnimate',
     'ngCookies',
-    'ngResource',
+    // 'ngResource',
     'ngSanitize',
-    'ngTouch',
+    // 'ngTouch',
     'toastrjs',
     'ui.bootstrap',
-    'ui.router'
+    uiRouter.name,
+    footer.name,
+    bookmarkSearch.name,
+    notificationModule.name
   ])
   .constant('RESOURCE_DESCRIPTION',{ //maybe should be a json file
     1:{

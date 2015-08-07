@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="styles/bookmarkSearch.css">
     <link rel="stylesheet" href="styles/bookmarkDetail.css">
     <link rel="stylesheet" href="styles/resourceType.css">
+    <script src="./jspm_packages/system.js"></script>
+    <script src="config.js"></script>
   </head>
   <body ng-app="bookmarkysiteApp">
     <!--[if lt IE 7]>
@@ -57,7 +59,7 @@
       ng-click="collapsed = !collapsed">Click to {{collapsed ? 'Expand' : 'Collapse'}}</div>
       <div class="collapsible-container" collapse="collapsed">
         <div class="stickied-container" >
-          <div class="item col-md-3"  ng-repeat="bookmark in stickiedBookmarks" 
+          <div class="item col-md-3"  ng-repeat="bookmark in stickiedBookmarks"
           bm-bg-image url="{{bookmark.linkIconUrl}}">
             <div class="edit" ui-sref="bookmarks.detail({bookmarkId: bookmark.id})">
               (Edit)
@@ -65,15 +67,17 @@
             <a href="{{bookmark.url}}" target="_blank">
                   <h2>{{bookmark.title}}</h2>
             </a>
-            
+
           </div>
         </div>
       </div>
-      
-      
     </div>
   </div>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    System.config('config.js')
+    System.import('./scripts/app')
+  </script>
   <script>
   !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
   (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
@@ -99,8 +103,8 @@
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
-  <script src="scripts/thirdPartyWrappers/toastrModule.js"></script>
-  <script src="scripts/app.js"></script>
+  <!-- // <script src="scripts/thirdPartyWrappers/toastrModule.js"></script> -->
+  <!-- // <script src="scripts/app.js"></script> -->
   <script src="scripts/filters/availableTagFilter.js"></script>
   <script src="scripts/directives/popover.js"></script>
   <script src="scripts/directives/tagSearch.js"></script>
@@ -111,10 +115,10 @@
   <script src="scripts/services/bookmarkService.js"></script>
   <script src="scripts/services/reviewService.js"></script>
   <script src="scripts/services/tagService.js"></script>
-  <script src="scripts/services/notification.js"></script>
+  <!-- // <script src="scripts/services/notification.js"></script> -->
   <script src="scripts/controllers/mainCtrl.js"></script>
-  <script src="scripts/controllers/footerCtrl.js"></script>
-  <script src="scripts/controllers/bookmarkSearchCtrl.js"></script>
+  <!-- // <script src="scripts/controllers/footerCtrl.js"></script> -->
+  <!-- // <script src="scripts/controllers/bookmarkSearchCtrl.js"></script> -->
   <script src="scripts/controllers/bookmarkCtrl.js"></script>
   <script src="scripts/controllers/reviewCtrl.js"></script>
   <script src="scripts/controllers/stickiedReferenceCtrl.js"></script>
