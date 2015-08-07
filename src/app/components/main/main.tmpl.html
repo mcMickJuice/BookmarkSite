@@ -1,0 +1,23 @@
+<div>
+  <div>
+    <h2>Bookmarky Ya'll</h2>
+    <p>Just a fresh fly site for keeping track of bookmarks and the like</p>
+    <p>
+      So why create this site?
+  I find myself bookmarking a ton of pages for later reading whether they be articles about a new technology, a tutorial or a cool video on a new framework. However, I find myself trying to organize bookmarks using folders in Chrome and sometimes I'm just too lazy to put a link into the correct folder. In addition, classifying, rating and management becomes a headache.
+
+  Building this site will help me keep bookmarks in order as well as let me tag and rate each one.
+    </p>
+  </div>
+
+  <div class="row marketing">
+    <p>Recently added bookmarks</p>
+    <ul ng-repeat="bm in recentlyAddedBookmarks">
+      <li>
+        <div>
+          <a href="{{bm.url}}" target="_blank">{{bm.title}}</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -21,7 +21,7 @@ angular
     // 'ngResource',
     'ngSanitize',
     // 'ngTouch',
-    'toastrjs',
+    // 'toastrjs',
     'ui.bootstrap',
     uiRouter.name,
     footer.name,

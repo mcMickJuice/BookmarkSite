@@ -1,0 +1,26 @@
+<div>
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search for a Tag"
+				ng-model="tagSearch" aria-describedby="tagSearchAddOn"/>
+				<span class="input-group-addon" id="tagSearchAddOn">
+					<span class="glyphicon glyphicon-search"></span>
+				</span>
+			</div>
+		</div>
+		<div ng-show="tagSearch && canAdd" class="col-xs-6">
+			<button ng-click="createTag({tagName: tagSearch})" type="button"
+			class="btn btn-default btn-sm" >Create New Tag</button>
+			<button ng-click="tagSearch =''" class="btn btn-danger btn-sm">Clear</button>
+		</div>
+	</div>
+	
+	
+	<div class="tag-list well clearfix">
+		<div class="col-xs-4 col-md-3 tag" ng-repeat="tag in selectedTags | availableTags: allTags | filter: tagSearch | limitTo: 8"
+			ng-click="addTag(tag)">
+			{{tag.tagName}}
+		</div>
+	</div>
+</div>

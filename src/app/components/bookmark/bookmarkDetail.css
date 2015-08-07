@@ -1,0 +1,32 @@
+.tag-search-results{
+/*	padding: 20px;
+	background-color: lightgray;
+	min-height: 200px;
+	max-height: 400px;*/
+}
+
+/*	.tag-search-results > div {
+		
+		cursor: pointer;
+	}*/
+
+	.tag {
+		font-size: smaller;
+		width: 100px;
+		height: 50px;
+		padding: 5px;
+		border: 1px solid black;
+		margin: 10px;
+		cursor: pointer;
+		background-color: lightblue;
+	}
+
+	.tag.added {
+		background-color: gray;
+	}
+
+
+/*.row-container div {
+	border: 1px black solid;
+	vertical-align: top;
+}*/

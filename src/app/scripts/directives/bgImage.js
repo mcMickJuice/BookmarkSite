@@ -14,7 +14,6 @@
 
 		return {
 			link: link,
-			scope: false,
 			restrict: 'A'
 		}
 	}

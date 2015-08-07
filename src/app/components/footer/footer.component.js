@@ -7,7 +7,7 @@ function FooterDirective() {
   return {
     template,
     controller,
-    controllerAs: vm,
+    controllerAs: 'vm',
     scope: {
 
     }
