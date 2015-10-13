@@ -1,0 +1,50 @@
+<div>
+	<button class="btn btn-sm btn-info" ui-sref="bookmarks.edit({bookmarkId: vm.bookmark.id})" 
+	type="button">
+		Edit Bookmark
+	</button>
+	<a target="_blank" href="{{bookmark.url}}" class="h3">{{vm.bookmark.title}}</a>
+	
+	<div class="row-container">
+		<div class="row">
+			<div class="col-sm-3" ng-init="isCollapsed = false" ng-click="isCollapsed = !isCollapsed">
+				<span class="h4">Tags - ({{isCollapsed ? 'show' : 'hide'}})</span>
+			</div>
+			<div class="col-sm-9">
+				<div class="tag-listing" collapse="isCollapsed">
+					<div class="tag" ng-repeat="tag in vm.bookmark.tags">
+						<span>{{tag.tagName}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<h4>Bookmark Description</h4>
+			</div>
+			<div class="col-sm-9">
+				<p>{{vm.bookmark.gist}}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3"><h4>Resource Type</h4></div>
+			<div class="col-sm-9">
+				<bm-resource-type resource-id="{{vm.bookmark.resourceType}}"></bm-resource-type>
+			</div>
+		</div>
+		<div class="row" ng-show="vm.bookmark.review.id">
+			<div class="col-sm-3">
+				<h4>Review</h4>
+			</div>
+			<div class="col-sm-9">
+				<span class="score">{{vm.bookmark.review.score}}</span>
+				<p>{{vm.bookmark.review.overview}}</p>
+			</div>
+		</div>
+		<div ng-hide="vm.bookmark.review.id" ng-click="vm.createReview(bookmark.id)">
+			Click Here to create a Review
+		</div>
+		
+		<!-- <span ng-click="openReviewDialog(bookmark.id)">Create/Edit Review</span> -->
+	</div>
+</div>

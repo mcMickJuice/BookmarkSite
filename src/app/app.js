@@ -1,21 +1,9 @@
 'use strict';
-
-/**
- * @ngdoc overview
- * @name bookmarkysiteApp
- * @description
- * # bookmarkysiteApp
- *
- * Main module of the application.
- */
-
 import {
     AppDirective as appComponent
 }
 from './app.component'
 import bookmarkyComponents from './components/component'
-// import {FooterDirective as footer} from '../components/footer/footer'
-// import {BookmarkSearchDirective as bookmarkSearch} from '../components/bookmark-search/bookmark-search'
 import notificationModule from './services/notification/notification.module'
 import uiRouter from 'angular-ui-router'
 
