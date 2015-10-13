@@ -1,4 +1,4 @@
-	function BookmarkSearchCtrl($scope, bookmarkService, notification){
+	function BookmarkSearchCtrl($scope, bookmarkService, notificationService){
 		var initSearchObject;
 
 		function clone(obj){
@@ -69,21 +69,21 @@
 				$scope.bookmarks = null;
 				if(data.length > 0){
 					$scope.bookmarks = data;
-					notification.success('Search Finished!');
+					notificationService.success('Search Finished!');
 				}
 				else{
-					notification.info('No bookmarks found');
+					notificationService.info('No bookmarks found');
 				}
 			},function(error,xhr,reason){
 				console.log(error);
 				console.log(xhr);
 				console.log(reason);
 
-				notification.error('There was an error when performing search');
+				notificationService.error('There was an error when performing search');
 			});
 		};
 		init();
 
 }
 
-export {BookmarkSearchCtrl}
+export default BookmarkSearchCtrl

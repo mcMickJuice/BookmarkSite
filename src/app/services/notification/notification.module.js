@@ -1,6 +1,6 @@
-import {NotificationService} from './notification'
+import NotificationService from './notification'
 import toastr from 'angular-toastr'
 import angular from 'angular'
 
 export default angular.module('bookmarky-notification', [toastr])
-          .factory('notificationService', NotificationService);
+          .service('notificationService', NotificationService);

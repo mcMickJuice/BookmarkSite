@@ -7,7 +7,7 @@ class NotificationService {
       showDuration: 300,
       hideDuration: 700
     };
-console.log(toastr);
+
     this.toastr = toastr;
     toastr.options = this.defaultOptions;
   }
@@ -25,4 +25,4 @@ console.log(toastr);
   }
 }
 
-export {NotificationService}
+export default NotificationService
