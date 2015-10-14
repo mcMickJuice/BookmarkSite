@@ -9,13 +9,15 @@ import bookmarkSearchComponent from './search/bookmarkSearch.component'
 import bookmarkCreateComponent from './create/bookmarkCreate.component'
 import bookmarkDetailComponent from './detail/bookmarkDetail.component'
 import popoverAttribute from '../shared/popover/popover.module'
+import tagSearchComponent from '../tagSearch/tagSearch.module'
 
 const deps = [
 'ui.router', 
 bookmarkServiceModule.name,
 tagServiceModule.name, 
 reviewServiceModule.name,
-popoverAttribute.name
+popoverAttribute.name,
+tagSearchComponent.name
 ];
 
 
