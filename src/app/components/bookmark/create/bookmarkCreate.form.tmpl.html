@@ -1,4 +1,3 @@
-<!-- TODO Update using controller AS -->
 <div>
 	<div ng-show="isEditMode">
 		<button class="btn btn-sm btn-danger"  ng-click="undoChanges()">Undo</button>
@@ -46,11 +45,11 @@
 		</div>
 	</div>
 	<label for="">Tags:</label>
-	<tag-search all-tags="allTags"
+	<bm-tag-search all-tags="allTags"
 	selected-tags="bookmark.tags"
 	create-tag="createTag(tagName)"
 	can-add="true">
-	</tag-search>
+	</bm-tag-search>
 	<div class="tag-listing">
 		<div class="tag" ng-repeat="tag in bookmark.tags">
 			<span>{{tag.tagName}}</span> <span ng-click="removeTag(tag)">X</span>

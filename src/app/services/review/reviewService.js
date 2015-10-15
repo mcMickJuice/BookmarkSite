@@ -9,7 +9,6 @@
 	//TODO make provider
 function ReviewService($http){
 
-	
 	var host = 'http://localhost:23346/api/Review/';
 	
 	function buildUrlEndpoint(action){
@@ -34,10 +33,20 @@ function ReviewService($http){
 			return response.data;
 		});
 	}
+
+	function getReviewForBookmark(bookmarkId) {
+		var url = buildUrlEndpoint(bookmarkId);
+
+		return $http.get(url)
+			.then(function(response) {
+				return response.data;
+			});
+	}
 	
 	return {
-		createReview: createReview,
-		updateReview: updateReview
+		createReview,
+		updateReview,
+		getReviewForBookmark
 	};
 }
 

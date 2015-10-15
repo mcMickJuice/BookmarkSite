@@ -16,6 +16,7 @@ System.config({
 System.config({
   "map": {
     "angular": "github:angular/bower-angular@1.4.3",
+    "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.14.2",
     "angular-mocks": "github:angular/bower-angular-mocks@1.4.3",
     "angular-toastr": "npm:angular-toastr@1.4.1",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
@@ -23,6 +24,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.20",
     "bootstrap": "github:twbs/bootstrap@3.3.5",
     "core-js": "npm:core-js@0.9.18",
+    "css": "github:systemjs/plugin-css@0.1.18",
     "jquery": "github:components/jquery@2.1.4",
     "lodash": "npm:lodash@3.10.1",
     "text": "github:systemjs/plugin-text@0.0.2",

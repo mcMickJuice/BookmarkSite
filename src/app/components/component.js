@@ -1,5 +1,5 @@
-import footerComponent from './footer/footer'
-import mainComponent from './main/main'
+import footerComponent from './footer/footer.module'
+import mainComponent from './main/main.module'
 import bookmarkModule from './bookmark/bookmark.module'
 
 import angular from 'angular'

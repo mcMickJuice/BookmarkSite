@@ -21,7 +21,7 @@
 
 //currently gets all bookmarks
 		getRecentBookmarks() {
-			const url = this.buildUrlEndpoint('Get');
+			const url = this.buildUrlEndpoint();
 			return this._$http.get(url)
 			.then(response => response.data);
 		}
@@ -42,7 +42,7 @@
 		}
 
 		getBookmark(bookmarkId) {
-			const url = this.buildUrlEndpoint('?id=' + bookmarkId);
+			const url = this.buildUrlEndpoint(bookmarkId);
 
 			return this._$http.get(url)
 			.then(response => response.data);
