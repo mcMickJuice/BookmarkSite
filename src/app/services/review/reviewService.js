@@ -2,9 +2,9 @@
 'use strict';
 	//TODO make provider
 
-function ReviewService($http){
+function ReviewService($http, configuration){
 
-	var host = 'http://localhost:23346/api/Review/';
+	var host = configuration.getDomain() + '/api/review/' ;
 
 	function buildUrlEndpoint(action){
 		var endpoint = action || '';

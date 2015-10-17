@@ -1,7 +1,7 @@
 'use strict';
 
-function TagService($http){
-	var host = 'http://localhost:23346/api/Tag/';
+function TagService($http, configuration){
+	var host = configuration.getDomain() + '/api/Tag/';
 
 	function buildUrlEndpoint(action){
 		var endpoint = action || '';

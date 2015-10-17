@@ -1,14 +1,15 @@
 'use strict';
 /*@ngInject*/
 	class BookmarkService {
-		constructor($http) {
+		constructor($http, configuration) {
 			this._$http = $http;
+			this._configuration = configuration;
 		}
 
 		// var host = 'http://localhost:23346/api/Bookmark/';
 
 		buildUrlEndpoint(action) {
-			const host = 'http://localhost:23346/api/Bookmark/'
+			const host = this._configuration.getDomain() + '/api/Bookmark/'
 			const endpoint = action || '';
 			return host + endpoint;
 		}

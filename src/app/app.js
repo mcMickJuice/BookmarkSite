@@ -6,15 +6,23 @@ from './app.component'
 import bookmarkyComponents from './components/component'
 import notificationModule from './services/notification/notification.module'
 import uiRouter from 'angular-ui-router'
+import configModule from './services/config/configurationProvider.module'
 
-angular
-    .module('bookmarkysiteApp', [
+
+
+var deps = [
         'ui.router',
         notificationModule.name,
-        bookmarkyComponents.name
-    ])
-    .directive('bmApp', appComponent)
+        bookmarkyComponents.name,
+        configModule.name
+    ]
 
+angular
+    .module('bookmarkysiteApp', deps)
+    .directive('bmApp', appComponent)
+.config(function(configurationProvider) {
+    configurationProvider.setConfiguration(bmGlobal.hostUrl);
+})
 .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
