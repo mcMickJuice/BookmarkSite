@@ -9,7 +9,8 @@ function ReviewComponent() {
 		controller,
 		controllerAs: 'vm',
 		scope: {
-			bookmarkId: "@"
+			bookmarkId: "@",
+			review: "="
 		},
 		template,
 		bindToController: true

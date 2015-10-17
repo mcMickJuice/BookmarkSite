@@ -1,5 +1,6 @@
 import modalTemplate from './reviewModal.tmpl.html!text'
 import modalCtrl from './reviewModal.ctrl'
+import _ from 'lodash'
 
 function ReviewController($modal, reviewService) {
     const vm = this;
@@ -9,13 +10,7 @@ function ReviewController($modal, reviewService) {
 
         const instance = $modal.open({
             resolve: {
-                review: function(reviewService) {
-                    if (bookmarkId) {
-                        return reviewService.getReviewForBookmark(bookmarkId);
-                    } else {
-                        return {};
-                    }
-                }
+                review: _.clone(vm.review)
             },
             template: modalTemplate,
             controller: modalCtrl,
@@ -35,14 +30,12 @@ function ReviewController($modal, reviewService) {
     }
 
     function _setViewModelReview(review) {
-        vm.currentReview = review;
+        vm.review = review;
     }
 
     vm.hasReview = function() {
-        return !!vm.currentReview;
+        return vm.review && vm.review.id;
     }
-
-    _setViewModelReview(reviewService.getCurrentReview());
 }
 
 export

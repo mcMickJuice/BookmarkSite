@@ -55,10 +55,7 @@ default angular.module('bookmarkModule', deps)
                 bookmark: function($stateParams, bookmarkService, reviewService) {
                     var bmId = $stateParams.bookmarkId;
 
-                    return reviewService.getReviewForBookmark(bmId)
-                        .then(function() {
-                            return bookmarkService.getBookmark(bmId);
-                        });              
+                    return bookmarkService.getBookmark(bmId);         
                 },
             }
         })

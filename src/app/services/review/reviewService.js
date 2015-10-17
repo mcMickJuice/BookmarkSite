@@ -4,13 +4,8 @@
 
 function ReviewService($http){
 
-	var host = 'http://localhost:23346/api/Review/',
-		_currentReview;
+	var host = 'http://localhost:23346/api/Review/';
 
-	function getCurrentReview() {
-		return _currentReview;
-	}
-	
 	function buildUrlEndpoint(action){
 		var endpoint = action || '';
 		return host + endpoint;
@@ -21,8 +16,8 @@ function ReviewService($http){
 		review.bookmarkId = bookmarkId; //bookmarkId == reviewId
 		
 		return $http.post(url,review)
-		.then(function(response){
-			return _currentReview = response.data;
+		.then(function({data}){
+			return data;
 		});
 	}
 	
@@ -30,8 +25,8 @@ function ReviewService($http){
 		var url = buildUrlEndpoint();
 		
 		return $http.put(url,review)
-		.then(function(response){
-			return _currentReview = response.data;
+		.then(function({data}){
+			return data;
 		});
 	}
 
@@ -39,16 +34,15 @@ function ReviewService($http){
 		var url = buildUrlEndpoint(bookmarkId);
 
 		return $http.get(url)
-			.then(function(response) {
-				return _currentReview = response.data;
+			.then(function({data}) {
+				return data;
 			});
 	}
 	
 	return {
 		createReview,
 		updateReview,
-		getReviewForBookmark,
-		getCurrentReview
+		getReviewForBookmark
 	};
 }
 
