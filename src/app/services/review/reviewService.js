@@ -1,27 +1,28 @@
-// (function(angular){
-
-	
-// 	angular.module('bookmarkysiteApp')
-// 	.factory('reviewService',['$http',ReviewService]);
-// }(window.angular));
 
 'use strict';
 	//TODO make provider
+
 function ReviewService($http){
 
-	var host = 'http://localhost:23346/api/Review/';
+	var host = 'http://localhost:23346/api/Review/',
+		_currentReview;
+
+	function getCurrentReview() {
+		return _currentReview;
+	}
 	
 	function buildUrlEndpoint(action){
 		var endpoint = action || '';
 		return host + endpoint;
 	}
 	
-	function createReview(review){
+	function createReview(review, bookmarkId){
 		var url = buildUrlEndpoint();
+		review.bookmarkId = bookmarkId; //bookmarkId == reviewId
 		
 		return $http.post(url,review)
 		.then(function(response){
-			return response.data;
+			return _currentReview = response.data;
 		});
 	}
 	
@@ -30,7 +31,7 @@ function ReviewService($http){
 		
 		return $http.put(url,review)
 		.then(function(response){
-			return response.data;
+			return _currentReview = response.data;
 		});
 	}
 
@@ -39,14 +40,15 @@ function ReviewService($http){
 
 		return $http.get(url)
 			.then(function(response) {
-				return response.data;
+				return _currentReview = response.data;
 			});
 	}
 	
 	return {
 		createReview,
 		updateReview,
-		getReviewForBookmark
+		getReviewForBookmark,
+		getCurrentReview
 	};
 }
 

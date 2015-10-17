@@ -1,7 +1,6 @@
-function BookmarkDetailCtrl($state) {
+function BookmarkDetailCtrl() {
  const vm = this;
-
- // vm.bookmark = bookmark;
+ 	//bookmark is bound to vm
 
  vm.createReview = function() {
 

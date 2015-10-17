@@ -49,12 +49,17 @@ default angular.module('bookmarkModule', deps)
                 vm.bookmark = bookmark;
             },
             controllerAs: 'vm',
+            bindToController: true,
             template: '<bm-detail-bookmark bookmark="vm.bookmark"></bm-detail-bookmark>',
             resolve: {
-                bookmark: function($stateParams, bookmarkService) {
+                bookmark: function($stateParams, bookmarkService, reviewService) {
                     var bmId = $stateParams.bookmarkId;
-                    return bookmarkService.getBookmark(bmId);                
-                }
+
+                    return reviewService.getReviewForBookmark(bmId)
+                        .then(function() {
+                            return bookmarkService.getBookmark(bmId);
+                        });              
+                },
             }
         })
     })
