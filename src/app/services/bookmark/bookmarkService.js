@@ -50,14 +50,14 @@
 		}
 
 		updateBookmark(bookmark) {
-			const url = this.buildUrlEndpoint('');
+			const url = this.buildUrlEndpoint();
 
 			return this._$http.put(url,bookmark)
 			.then(response => response.data);
 		}
 
 		createBookmark(bookmark) {
-			const url = this.buildUrlEndpoint('Post');
+			const url = this.buildUrlEndpoint();
 
 			return this._$http.post(url,bookmark)
 			.then(response => response.data);
