@@ -1,0 +1,27 @@
+.bookmark-listing > div{
+	border: 1px solid lightgray;
+	padding: 10px;
+}
+
+
+.bookmark-item{
+	min-height: 70px;
+	margin: 10px 0;
+	border-bottom: 1px solid lightgray;
+}
+
+	.bookmark-item > .title{
+		
+	}
+
+	.bookmark-item > .gist{
+		min-height: inherit;
+		text-align: justify;
+		border-left: 1px solid lightgray;
+		border-right: 1px solid lightgray;
+	}
+
+	.bookmark-item > .action{
+		text-align: center;
+	}
+

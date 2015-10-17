@@ -1,0 +1,20 @@
+<div class="footer clearfix" ng-init="collapsed = false" >
+  <div class="collapse-toggle"
+  ng-click="collapsed = !collapsed">Click to {{collapsed ? 'Expand' : 'Collapse'}}</div>
+  <div class="collapsible-container" collapse="collapsed">
+    <div class="stickied-container" >
+
+      <!-- bookmark component -->
+      <div class="item col-md-3"  ng-repeat="bookmark in vm.stickiedBookmarks"
+      bm-bg-image url="{{bookmark.linkIconUrl}}">
+        <div class="edit" ui-sref="bookmarks.detail({bookmarkId: bookmark.id})">
+          (Edit)
+        </div>
+        <a href="{{bookmark.url}}" target="_blank">
+              <h2>{{bookmark.title}}</h2>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
