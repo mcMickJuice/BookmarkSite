@@ -1,4 +1,4 @@
-'use strict';
+    'use strict';
 import {
     AppDirective as appComponent
 }
@@ -20,8 +20,9 @@ var deps = [
 angular
     .module('bookmarkysiteApp', deps)
     .directive('bmApp', appComponent)
-.config(function(configurationProvider) {
-    configurationProvider.setConfiguration(bmGlobal.hostUrl);
+    .config(function(configurationProvider) {
+        //config comes from envConfig file, during config replace task
+        configurationProvider.setConfiguration(bookmarkyConfig.webApiUrl);
 })
 .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');

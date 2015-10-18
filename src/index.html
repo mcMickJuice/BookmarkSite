@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="./jspm_packages/github/twbs/bootstrap@3.3.5/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./jspm_packages/npm/angular-toastr@1.4.1/dist/angular-toastr.min.css" />
     <!-- <link rel="stylesheet" href="./app/styles/main.css"> -->
-    <script>
-    //write here with build process to replace url
-    bmGlobal = {
-      hostUrl: 'http://localhost:23346'
-    }
-    </script>
+
+    <!-- build:envConfig -->
+    <script type="application/javascript">var bookmarkyConfig = bookmarkyConfig || {};bookmarkyConfig.webApiUrl = "http://localhost:23346"</script>
+    <!-- endbuild -->
+
     <link rel="stylesheet" href="./app/styles/site.css">
     <script src="./jspm_packages/system.js"></script>
     <script src="config.js"></script>
