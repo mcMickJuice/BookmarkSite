@@ -1,18 +1,16 @@
-//json server
-
 //server reload
 
 //jspm bundle - create separate bundles
 
-//write webapi endpoint in index.html
 
 //run tests
 
-//prod build moving all to dist
+
 
 var gulp = require('gulp');
 var args = require('yargs').argv;
 var del = require('del');
+var server = require('gulp-server-livereload');
 var htmlReplace = require('gulp-html-replace');
 var envConfig = require('./envConfig')
 
@@ -24,6 +22,17 @@ gulp.task('clean-all', function() {
     var toDelete = ['dist']
     return del(toDelete);
 })
+
+gulp.task('watch', function() {
+	gulp.src('src')
+		.pipe(server({
+			livereload: true,
+			directoryListing:true,
+			open: true
+		}))
+})
+
+//prod build moving all to dist
 
 gulp.task('build-prod', ['clean-all'], function() {
 	var templateString = '<script>' +
@@ -43,6 +52,5 @@ gulp.task('build-prod', ['clean-all'], function() {
 })
 
 gulp.task('default', function() {
-    console.log('this is the default task')
-    console.log(envConfig);
+    
 })
