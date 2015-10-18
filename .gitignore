@@ -18,6 +18,9 @@ bower_components
 /node_modules/*
 /ThirdParty/bower_components/*
 
+#just ignore all log files
+*.log
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
